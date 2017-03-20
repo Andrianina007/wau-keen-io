@@ -2,6 +2,8 @@
 namespace WauKeenIo\Creationals;
 
 use WauKeenIo\Interfaces\InterfaceWAUKeenIOFactoryMethod;
+use WauKeenIo\Models\WebhookKeenIoItem;
+use WauKeenIo\Models\ApiKeenIoItem;
 
 class WAUKeenIoFactory implements InterfaceWAUKeenIOFactoryMethod {
     
@@ -9,7 +11,9 @@ class WAUKeenIoFactory implements InterfaceWAUKeenIOFactoryMethod {
         
         switch ($datas['type']) {
             case 'webhook':
-                return ;
+                return new WebhookKeenIoItem();
+            case 'api':
+                return new ApiKeenIoItem();
         }
     }
 
