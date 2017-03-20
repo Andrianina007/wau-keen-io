@@ -15,5 +15,6 @@
             "name": "Andrianina",
             "email": "andrianina@wau.solutions"
         }
-    ]
+    ],
+    "minimum-stability": "dev"
 }
