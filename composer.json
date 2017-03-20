@@ -1,12 +1,12 @@
 {
-    "name": "root/keen.io",
+    "name": "wau/wau-keen-io",
     "description": "Client for Keen.io",
     "require": {
         "php": ">=5.6.0",
         "keen-io/keen-io": "~2.5"
     },
     "autoload": {
-        "psr-4": {
+        "psr-0": {
             "WauKeenIo\\": "src/"
         }
     },
