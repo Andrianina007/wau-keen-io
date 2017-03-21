@@ -47,7 +47,6 @@ abstract class KeenIoItem {
     
     /**
      * Send the event objects to Keen.io
-     * @param array $datas Data to send to Keen.Io
      */
-    public abstract function addEvent($datas);
+    public abstract function addEvent();
 }
