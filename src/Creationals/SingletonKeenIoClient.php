@@ -19,7 +19,7 @@ final class SingletonKeenIoClient {
     
     public static function getInstance() {
         if (is_null(self::$keenIoClient) || !isset(self::$keenIoClient)) {
-            if (!defined(KEENIO_PROJECT_ID) && !defined(KEENIO_WRITE_KEY)) {
+            if (!defined('KEENIO_PROJECT_ID') && !defined('KEENIO_WRITE_KEY')) {
                 throw new KeenIoItemException("Keen.Io projectId or writeKey is not defined with KEENIO_PROJECT_ID or KEENIO_WRITE_KEY");
             } else {
                 self::$keenIoClient = KeenIOClient::factory([
