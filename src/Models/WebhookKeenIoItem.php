@@ -40,7 +40,7 @@ class WebhookKeenIoItem extends KeenIoItem{
     public $id;
     
     public function addEvent() {
-        $datas = KeenIoItemParser::parse($this);
+        $datas = (new KeenIoItemParser)->parse($this);
         
         $this->keenIoClient->addEvent($this->eventsType, array($this->eventType => $datas));
     }

@@ -15,7 +15,7 @@ trait ClassTrait {
      * @throws KeenIoItemException
      */
     public function checkAttribute($attributeName, KeenIoItem $item) {
-        if (!property_exists($item->{$attributeName})) {
+        if (!property_exists($item, $attributeName)) {
             throw new KeenIoItemException("Attribute ". $attributeName." must be set.");
         } else {
             return true;

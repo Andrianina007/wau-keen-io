@@ -26,7 +26,7 @@ class PodioApiKeenIoItem extends KeenIoItem {
      * Send an event to Keen.Io
      */
     public function addEvent() {
-        $datas = KeenIoItemParser::parse($this);
+        $datas = (new KeenIoItemParser)->parse($this);
         
         $this->keenIoClient->addEvent($this->eventsType, array($this->eventType => $datas));
     }

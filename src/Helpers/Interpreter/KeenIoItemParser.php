@@ -17,7 +17,7 @@ class KeenIoItemParser extends AbstractItemParser{
      * @param KeenIoItem $item The Keen.Io item object
      * @return array data that should be send to Keen.Io
      */
-    public static function parse(KeenIoItem $item) {
+    public function parse(KeenIoItem $item) {
         $this->item = $item;
         $this->checkAttribute($this->item->eventDate, $this->item);
         
@@ -31,7 +31,7 @@ class KeenIoItemParser extends AbstractItemParser{
     private function apply() {
         $datas = array();
         foreach($this->item as $key => $property) {
-            array_push($datas, array( $key => (array) $this->item->{$property}));
+            $datas[$key] = (array) $this->item->{$key};
         }
         return $datas;
     }
