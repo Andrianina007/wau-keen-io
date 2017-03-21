@@ -1,5 +1,5 @@
 <?php
-namespace WauKeenIo\Helpers;
+namespace WauKeenIo\Helpers\Interpreter;
 
 use WauKeenIo\Models\KeenIoItem;
 

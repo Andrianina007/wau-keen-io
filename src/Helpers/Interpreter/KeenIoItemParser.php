@@ -1,19 +1,22 @@
 <?php
 
-namespace WauKeenIo\Helpers;
+namespace WauKeenIo\Helpers\Interpreter;
 
-use WauKeenIo\Helpers\InterfaceKeenIoItemParser;
+use WauKeenIo\Helpers\Interpreter\AbstractItemParser;
 use WauKeenIo\Models\KeenIoItem;
-use WauKeenIo\Exceptions\KeenIoItemException;
 
 /**
  * Description of KeenIoItemParser
  *
  * @author Andrianina OELIMAHEFASON
  */
-class WebhooksKeenIoItemParser implements InterfaceKeenIoItemParser{
+class KeenIoItemParser extends AbstractItemParser{
     
-    private $item;
+    /**
+     * Parse the KeenIoItem class to an array (Interpreter for Keen.Io)
+     * @param KeenIoItem $item The Keen.Io item object
+     * @return array data that should be send to Keen.Io
+     */
     public static function parse(KeenIoItem $item) {
         $this->item = $item;
         $this->checkAttribute($this->item->eventDate, $this->item);
@@ -21,14 +24,10 @@ class WebhooksKeenIoItemParser implements InterfaceKeenIoItemParser{
         return $this->apply();
     }
     
-    private function checkAttribute($attributeName, $item) {
-        if (!isset($item->{$attributeName})) {
-            throw new KeenIoItemException("Attribute ". $attributeName." must be set.");
-        } else {
-            return true;
-        }
-    }
-    
+    /**
+     * Apply the parsing
+     * @return array
+     */
     private function apply() {
         $datas = array();
         foreach($this->item as $key => $property) {

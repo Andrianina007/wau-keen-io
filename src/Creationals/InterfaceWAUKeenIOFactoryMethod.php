@@ -1,7 +1,12 @@
 <?php
-namespace WauKeenIo\Interfaces;
+namespace WauKeenIo\Creationals;
 
 interface InterfaceWAUKeenIOFactoryMethod {
-    public static function make($type);
+    /**
+     * Make an KeenIo
+     * @param string $type
+     * @param array $data
+     */
+    public static function make($type, $datas);
 }
 

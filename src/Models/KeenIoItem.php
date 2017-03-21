@@ -2,25 +2,52 @@
 
 namespace WauKeenIo\Models;
 
-use KeenIO\Client\KeenIOClient;
+use WauKeenIo\Creationals\SingletonKeenIoClient;
 /**
  * Description of KeenIoItem
+ * Parent class for all event that will be fire in the Keen.io
  *
  * @author Andrianina OELIMAHEFASON
  */
 abstract class KeenIoItem {
+    /**
+     * The KeenIoClient
+     * @var KeenIoClient 
+     */
     protected $keenIoClient;
     
+    /**
+     * Date where the event was triggered
+     * @var string
+     */
     public $eventDate;
     
-    public function __construct() {
-        $this->eventDate = new \DateTime();
-        // May need use Singleton when created an app and est it here
-        $this->keenIoClient = KeenIOClient::factory([
-          'projectId' => '58cf95a395cfc91c2b8e507e',
-          'writeKey' => 'E4F3CB88ACE8861633B18E7C822A50F1FDBD29B4B08D3242E79DF30B2D25595B1918DCA89AAA168628A42FCCB133A0F76AD547420C0590BED71698FD5CC93A8F05E78C483B0B3C0809E6BFE92E8BACB7EAF54A4AD5C94B8DB7F4D8C7AA79B60D'
-        ]);
+    /**
+     * Construct a keenIoITem, should be use an signelton
+     * when creating the keenIo client outside of this
+     * @param array $item
+     */
+    public function __construct(array $item) {
+        $this->eventDate = (new \DateTime())->format("Y-m-d h:i");
+        $this->keenIoClient = SingletonKeenIoClient::getInstance();
+        $this->init($item);
     }
     
-    public abstract function addEvent();
+    /**
+     * Set array $data to the class properties
+     * @param array $datas
+     */
+    protected function init($datas) {
+        foreach ($datas as $key => $value) {
+            if (property_exists($this, $key)) {
+                $this->{$key} = $value;
+            }
+        }
+    }
+    
+    /**
+     * Send the event objects to Keen.io
+     * @param array $datas Data to send to Keen.Io
+     */
+    public abstract function addEvent($datas);
 }
