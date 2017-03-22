@@ -8,7 +8,7 @@
 namespace WauKeenIo\Observer;
 
 
-abstract class AbstractObserver
+abstract class AbstractObserver implements ObserverInterface
 {
-    public abstract function update(AbstractSubject $subject_in);
+    public abstract function update(ObservableInterface $subject_in);
 }

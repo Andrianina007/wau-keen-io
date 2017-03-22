@@ -8,7 +8,7 @@
 namespace WauKeenIo\Observer;
 
 
-abstract class AbstractSubject
+abstract class AbstractSubject implements ObservableInterface
 {
     abstract function attach(AbstractObserver $observer_in);
     abstract function detach(AbstractObserver $observer_in);

@@ -9,8 +9,8 @@ namespace WauKeenIo\Observer;
 
 class SubjectObserver extends AbstractObserver
 {
-    public  function update(AbstractSubject $subject)
+    public  function update(ObservableInterface $subject)
     {
-        $subject->addEvent();
+
     }
 }
