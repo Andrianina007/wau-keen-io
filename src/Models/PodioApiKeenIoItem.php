@@ -20,7 +20,7 @@ class PodioApiKeenIoItem extends KeenIoItem {
     /*
      * The firing events, ex: Podio
      */
-    private $firingEvents;
+    private $firingEvent;
     
     /**
      * Send an event to Keen.Io
