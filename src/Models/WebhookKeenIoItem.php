@@ -38,6 +38,12 @@ class WebhookKeenIoItem extends KeenIoItem{
      * @var integer
      */
     public $id;
+
+    /**
+     * the full request
+     * @var array
+     */
+    public $fullRequest;
     
     public function addEvent() {
         $datas = (new KeenIoItemParser)->parse($this);
