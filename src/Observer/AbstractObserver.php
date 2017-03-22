@@ -8,14 +8,7 @@
 namespace WauKeenIo\Observer;
 
 
-abstract class AbstractObserver implements ObservableInterface
+abstract class AbstractObserver
 {
-    protected $data;
-
-    function __construct($data)
-    {
-        $this->data = $data;
-    }
-
-    public abstract function fireEvent();
+    public abstract function update(AbstractSubject $subject_in);
 }
