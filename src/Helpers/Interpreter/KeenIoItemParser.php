@@ -19,7 +19,7 @@ class KeenIoItemParser extends AbstractItemParser{
      */
     public function parse(KeenIoItem $item) {
         $this->item = $item;
-        $this->checkAttribute($this->item->eventDate, $this->item);
+        $this->checkAttribute('eventDate', $this->item);
         
         return $this->apply();
     }

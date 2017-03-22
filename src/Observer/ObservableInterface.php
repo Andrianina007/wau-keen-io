@@ -13,4 +13,5 @@ interface ObservableInterface
     public function attach(ObserverInterface $observer_in);
     public function detach(ObserverInterface $observer_in);
     public function notify();
+    public function getRawData();
 }
