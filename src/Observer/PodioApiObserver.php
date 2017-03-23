@@ -12,7 +12,7 @@ use WauKeenIo\Creationals\WAUKeenIoFactory;
 
 class PodioApiObserver extends AbstractObserver
 {
-    public function fireEvent()
+    public function update(ObservableInterface $observable)
     {
         $factory = WAUKeenIoFactory::make('podio_api', $this->data);
         $factory->addEvent();
