@@ -10,8 +10,8 @@ namespace WauKeenIo\Observer;
 
 abstract class AbstractSubject implements ObservableInterface
 {
-    abstract function attach(AbstractObserver $observer_in);
-    abstract function detach(AbstractObserver $observer_in);
+    abstract function attach(ObserverInterface $observer_in);
+    abstract function detach(ObserverInterface $observer_in);
     abstract function notify();
     abstract function getRawData();
 }
