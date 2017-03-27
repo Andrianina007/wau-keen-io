@@ -14,7 +14,9 @@ class PodioApiObserver extends AbstractObserver
 {
     public function update(ObservableInterface $observable)
     {
-        $factory = WAUKeenIoFactory::make('podio_api', $this->data);
+        $data = $observable->getRawData();
+        print_r($data);
+        $factory = WAUKeenIoFactory::make('podio_api', $data);
         $factory->addEvent();
     }
 }

@@ -14,13 +14,12 @@ class PodioApiKeenIoItem extends KeenIoItem {
     private $eventsType = 'podio_api';
     
     private $eventType = 'podio_apis';
-    
-    private $url;
-    
-    /*
-     * The firing events, ex: Podio
-     */
-    private $firingEvent;
+
+    public $method;
+    public $url;
+    public $attributes;
+    public $options;
+
     
     /**
      * Send an event to Keen.Io
